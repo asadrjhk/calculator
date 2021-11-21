@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 3px solid red;
+  }
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .calculator {
+    border: 10px outset gray;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+  }
+  .display {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    border: 10px outset red;
+    height: 100px;
+  }
+  .buttons {
+    border: 10px outset green;
+    flex: 1;
+    
+  }
+  
