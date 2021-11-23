@@ -4,7 +4,7 @@ const operation = {
   multiply: (a, b) => a * b,
   divide: (a, b) => {
     if (b === 0) {
-      return "Division not possible";
+      return "Cannot divide by zero‬";
     } else {
       return a / b;
     }
@@ -77,7 +77,6 @@ buttons.forEach(button => {
       temp = "";
       console.log("num1: " + num1);
       }
-       
       nextOperator = event.target.textContent; 
       pair++;
     }  else if (event.target.id === 'clear') {
@@ -99,7 +98,8 @@ buttons.forEach(button => {
       console.log("num2: " + num2);
       console.log("operator check: " + operator);
       let result = operate(nextOperator, num1, num2);
-      num1 = result;
+      if (result !== 'Cannot divide by zero‬')
+        num1 = result;
       console.log("num1 inside equal: " + num1);
       console.log(result);
       populateDisplay(resultdisplay, result);
@@ -110,6 +110,5 @@ buttons.forEach(button => {
       totaldisplay.textContent = totaldisplay.textContent.substring(0, totaldisplay.textContent.length - 1);
       // console.log("digit-temp-backspace: " + temp);
     }
-
   })
 })

@@ -28,4 +28,9 @@ body {
   border: 10px outset green;
   flex: 1;
   
+  /* grids */
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+ 
+  
 }
