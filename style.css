@@ -22,7 +22,7 @@ body {
   justify-content: flex-end;
   align-items: flex-end;
   border: 10px outset red;
-  height: 100px;
+  height: 200px;
 }
 .buttons {
   border: 10px outset green;

@@ -31,12 +31,16 @@ const resultdisplay = document.querySelector('.result');
 
 
 const buttons = document.querySelectorAll('.buttons div');
+const decimalButton = document.querySelector('#decimal');
+ 
 let temp = "";
 let operator = "";  //current operator
 let nextOperator = ""; 
 let num1 = "";
 let num2 = "";
 let pair = 1;
+
+  
 buttons.forEach(button => {
    button.addEventListener('click', (event) => {
     if (event.target.id !== 'backspace'){
@@ -44,9 +48,15 @@ buttons.forEach(button => {
     }
     populateDisplay(resultdisplay, event.target.textContent);
     if (event.target.classList.contains('digit')) {
+       if (event.target.id === 'decimal') {
+        console.log(decimalButton);
+        decimalButton.style.pointerEvents = 'none';
+      }
       temp += event.target.textContent;
       console.log("digit-temp: " + temp);
+      
     } else if (event.target.classList.contains('operator')) {
+      decimalButton.style.pointerEvents = 'auto';
       operator = nextOperator;
       if (pair >= 2) {
         num2 = temp;
@@ -79,8 +89,10 @@ buttons.forEach(button => {
       temp = "";
       console.clear();
       pair = 1;
+      decimalButton.style.pointerEvents = 'auto';
       
     } else if (event.target.id === 'equal') {
+      decimalButton.style.pointerEvents = 'auto';
       num2 = temp;
       temp = "";
       console.log("num1 check: " + num1);
@@ -96,7 +108,7 @@ buttons.forEach(button => {
       temp = temp.substring(0, temp.length - 1);
       resultdisplay.textContent = resultdisplay.textContent.substring(0, resultdisplay.length - 1);
       totaldisplay.textContent = totaldisplay.textContent.substring(0, totaldisplay.textContent.length - 1);
-      console.log("digit-temp-backspace: " + temp);
+      // console.log("digit-temp-backspace: " + temp);
     }
 
   })
