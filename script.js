@@ -39,7 +39,9 @@ let num2 = "";
 let pair = 1;
 buttons.forEach(button => {
    button.addEventListener('click', (event) => {
-    totaldisplay.textContent += event.target.textContent;
+    if (event.target.id !== 'backspace'){
+      totaldisplay.textContent += event.target.textContent;
+    }
     populateDisplay(resultdisplay, event.target.textContent);
     if (event.target.classList.contains('digit')) {
       temp += event.target.textContent;
@@ -90,7 +92,12 @@ buttons.forEach(button => {
       console.log(result);
       populateDisplay(resultdisplay, result);
       pair = 1;
-    } 
+    } else if (event.target.id === 'backspace') {
+      temp = temp.substring(0, temp.length - 1);
+      resultdisplay.textContent = resultdisplay.textContent.substring(0, resultdisplay.length - 1);
+      totaldisplay.textContent = totaldisplay.textContent.substring(0, totaldisplay.textContent.length - 1);
+      console.log("digit-temp-backspace: " + temp);
+    }
 
   })
 })
