@@ -105,10 +105,14 @@ buttons.forEach(button => {
       populateDisplay(resultdisplay, result);
       pair = 1;
     } else if (event.target.id === 'backspace') {
+      let lastDigit = temp.charAt(temp.length - 1);
       temp = temp.substring(0, temp.length - 1);
       resultdisplay.textContent = resultdisplay.textContent.substring(0, resultdisplay.length - 1);
       totaldisplay.textContent = totaldisplay.textContent.substring(0, totaldisplay.textContent.length - 1);
       // console.log("digit-temp-backspace: " + temp);
+      if (lastDigit === '.') {
+        decimalButton.style.pointerEvents = 'auto';
+      }
     }
   })
 })
